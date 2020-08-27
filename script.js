@@ -30,7 +30,7 @@ function createAimUnit () {
     obj['monthly-payment'] = monthlyPayment;
 
     aimMass.push(obj);
-    document.querySelector('#aim').reset();
+    document.querySelector('.aim-data').reset();
     console.log(aimMass);
     return aimMass;
 }
