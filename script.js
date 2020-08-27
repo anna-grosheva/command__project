@@ -52,12 +52,15 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 })
 
 
+// кнопка Добавить
+let form = document.querySelector('form');
+let card = document.querySelector('.aim-card');
+let createButton = document.querySelector('.create');
 
+form.style.display = 'none';
+card.style.display = 'none';
 
-
-
-
-
-
-
+createButton.addEventListener('click', () => {
+    form.style.display = 'block';
+})
 
