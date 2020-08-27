@@ -113,11 +113,11 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .aim-data__months {
-    /* display: none; */
+    display: none;
 }
 
 .aim-data__payment {
-    /* display: none; */
+    display: none;
 }
 
 .aim-card {
