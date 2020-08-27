@@ -51,6 +51,42 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
     createAimUnit();
 })
 
+/*
+Функция создания каррточки цели
+ */
+
+function createAimCard () {
+    const form = document.querySelector('.aim-data');
+    const cardDiv = document.createElement('div');
+    cardDiv.classList.add('aim-card');
+
+    const firstInner = document.createElement('div');
+    const headH3 = document.createElement('h3');
+    headH3.classList.add('aim-card__heading');
+    headH3.innerText = 'Название цели';
+    const mainContent = document.createElement('p');
+    mainContent.classList.add('aim-card__text');
+    firstInner.append(headH3);
+    firstInner.append(mainContent);
+
+    const secondInner = document.createElement('div');
+    secondInner.classList.add('aim-card__buttons');
+
+    form.parentNode.insertBefore(cardDiv, form.nextSibling);
+
+
+
+
+
+
+
+    // const testButton = document.createElement('button');
+    // testButton.innerText = 'TEST';
+    // form.parentNode.insertBefore(testButton, form.nextSibling);
+}
+
+createAimCard();
+
 
 // кнопка Добавить
 let form = document.querySelector('form');
