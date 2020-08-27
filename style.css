@@ -2,20 +2,44 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    width: 70%;
+    width: 100%; 
+}
+
+main {
+    width: 520px;
+    background-color: #F9F8F2;
+    border-radius: 15px;
+    margin: 0 auto;
     text-align: center;
+    padding: 5px 0;
 }
 
 h1 {
     font-size: 28px;
     margin: 30px 0 0;
     text-transform: uppercase;
+    color: #606c38;
 }
 
 h2 {
     font-size: 16px;
     margin: 10px 0 30px;
     text-transform: uppercase;
+    color: #283618;
+}
+
+.create {
+    background-color: #BC6C25;
+    color: #FEFAE0;
+    width: 150px;
+    height: 38px;
+    border: 1px solid #BC6C25;
+    border-radius: 18px;
+}
+
+.create:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .aim-data {
@@ -31,6 +55,21 @@ h2 {
 .aim-data__button {
     width: 100px;
     margin: 15px auto;
+    height: 35px;
+    border: 1px solid #DDA15E;
+    border-radius: 18px;
+    background-color: #DDA15E;
+    color: #FEFAE0;
+}
+
+.aim-data__button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.aim-data__question {
+    color: #BC6C25;
+    font-weight: bold;
 }
 
 label {
@@ -43,13 +82,23 @@ label {
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
+    color: #283618;
 }
 
 input {
     margin-left: 15px;
     border: 1;
     height: 28px;
-    color: darkslategray;
+    color: #283618;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 .choose-option {
@@ -61,18 +110,62 @@ input {
     width: 50px;
 }
 
+.aim-data__months {
+    /* display: none; */
+}
+
+.aim-data__payment {
+    /* display: none; */
+}
+
 .aim-card {
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
     box-sizing: border-box;
     width: 300px;
-    height: 200px;
+    height: 150px;
     border-radius: 8px;
+    border: 1px solid #606c38;
     margin: 30px auto;
+    background-color: #606c38;
+    color: #FEFAE0;
+    padding: 10px;
 }
 
 .aim-card__buttons {
     display: flex;
     flex-direction: column;
 }
+
+.aim-card__single-button {
+    background-color: #FEFAE0;
+    border: 1px solid #FEFAE0;
+    border-radius: 3px;
+    color: #BC6C25;
+    width: 33px;
+    height: 30px;
+    margin: 4px;
+    padding: 0;
+    outline: none;
+}
+
+.aim-card__single-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    color: #283618;
+}
+
+.aim-card__heading {
+    font-size: 18px;
+    padding: 5px;
+    margin: 0;
+}
+
+.aim-card__text {
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
