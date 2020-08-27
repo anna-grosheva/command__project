@@ -83,6 +83,7 @@ label {
     padding-left: 10px;
     padding-right: 10px;
     color: #283618;
+    background-color: transparent;
 }
 
 input {
