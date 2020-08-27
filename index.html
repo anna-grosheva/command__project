@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Копилка</title>
 </head>
 <body>
-    <h1>hello world</h1>
+    <h1>Копилка</h1>
+    <h2>Ставь цель и копи</h2>
+    <button class="create" type="button">Добавить цель</button>
+    <form class="aim-data">
+        <label>
+            На что копим?
+            <input type="text" name="aim" class="aim">
+        </label>
+        <label>
+            Необходимая сумма:
+            <input type="number" name="final-sum" class="final-sum">
+        </label>
+        <label>
+            Сколько уже есть?
+            <input type="number" name="start-sum" class="start-sum">
+        </label>
+        <label>
+            Процентная ставка вашего вклада:
+            <input type="number" name="rate" class="rate">
+        </label>
+        <p>Что нужно рассчитать?</p>
+        <label>
+            Ежемесячный платеж
+            <input type="radio" name="radio">
+        </label>
+        <label>
+            Срок накопления
+            <input type="radio" name="radio">
+        </label>
+        <label>
+            На какой срок?
+            <input type="number" name="time" class="time">
+        </label>
+        <label>
+            Готов платить ежемесячно:
+            <input type="number" name="monthly-payment" class="monthly-payment">
+        </label>
+        <button type="submit">Рассчитать</button>
+    </form>
+    <div class="aim-card">
+        <p class="aim-card__text"></p>
+        <div class="aim-card__buttons">
+            <button type="button">Редактировать</button>
+            <button type="button">Удалить</button>
+        </div>
+    </div>
 </body>
 </html>
