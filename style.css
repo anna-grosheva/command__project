@@ -6,7 +6,7 @@ body {
 }
 
 main {
-    width: 520px;
+    width: 600px;
     background-color: #F9F8F2;
     border-radius: 15px;
     margin: 0 auto;
@@ -47,7 +47,7 @@ h2 {
     flex-direction: column;
     flex-wrap: wrap;
     margin: 30px auto;
-    width: 400px;
+    width: 480px;
     font-size: 14px;
     box-sizing: border-box;
 }
@@ -87,7 +87,7 @@ label {
 
 input {
     margin-left: 15px;
-    border: 1;
+    border: none;
     height: 28px;
     color: #283618;
     background-color: transparent;
@@ -103,7 +103,7 @@ input[type='number']::-webkit-inner-spin-button {
 
 .choose-option {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .rate {
