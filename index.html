@@ -7,53 +7,69 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Копилка</h1>
-    <h2>Ставь цель и копи</h2>
-    <button class="create" type="button">Добавить цель</button>
-    <form class="aim-data">
-        <label>
-            На что копим?
-            <input type="text" name="aim" class="aim">
-        </label>
-        <label>
-            Необходимая сумма:
-            <input type="number" name="final-sum" class="final-sum">
-        </label>
-        <label>
-            Сколько уже есть?
-            <input type="number" name="start-sum" class="start-sum">
-        </label>
-        <label>
-            Процентная ставка вашего вклада:
-            <input type="number" name="rate" class="rate">
-        </label>
-        <p>Что нужно рассчитать?</p>
-        <div class="choose-option">
+    <main>
+        <h1>Копилка</h1>
+        <h2>Ставь цель и копи</h2>
+        <button class="create" type="button">Добавить цель</button>
+        <form class="aim-data">
             <label>
-                Ежемесячный платеж
-                <input type="radio" name="radio">
+                На что копим?
+                <input type="text" name="aim" class="aim">
             </label>
             <label>
-                Срок накопления
-                <input type="radio" name="radio">
+                Необходимая сумма:
+                <input type="number" name="final-sum" class="final-sum">
             </label>
+            <label>
+                Сколько уже есть?
+                <input type="number" name="start-sum" class="start-sum">
+            </label>
+            <label>
+                Процентная ставка вашего вклада:
+                <input type="number" name="rate" class="rate">
+            </label>
+            <p class="aim-data__question">Что нужно рассчитать?</p>
+            <div class="choose-option">
+                <label>
+                    Ежемесячный платеж
+                    <input type="radio" name="radio">
+                </label>
+                <label>
+                    Срок накопления
+                    <input type="radio" name="radio">
+                </label>
+            </div>
+            <label class="aim-data__months">
+                На какой срок?
+                <input type="number" name="time" class="time">
+            </label>
+            <label class="aim-data__payment">
+                Готов платить ежемесячно:
+                <input type="number" name="monthly-payment" class="monthly-payment">
+            </label>
+            <button type="submit" class="aim-data__button">Рассчитать</button>
+        </form>
+        <div class="aim-card">
+            <div>
+                <h3 class="aim-card__heading">Название цели</h3>
+                <p class="aim-card__text">Текст</p>
+            </div>
+            <div class="aim-card__buttons">
+                <button type="button" class="aim-card__single-button">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"/>
+                        <path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"/>
+                    </svg>
+                </button>
+                <button type="button" class="aim-card__single-button">
+                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-x-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                        <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <label>
-            На какой срок?
-            <input type="number" name="time" class="time">
-        </label>
-        <label>
-            Готов платить ежемесячно:
-            <input type="number" name="monthly-payment" class="monthly-payment">
-        </label>
-        <button type="submit" class="aim-data__button">Рассчитать</button>
-    </form>
-    <div class="aim-card">
-        <p class="aim-card__text">Заглушка</p>
-        <div class="aim-card__buttons">
-            <button type="button">Редактировать</button>
-            <button type="button">Удалить</button>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
