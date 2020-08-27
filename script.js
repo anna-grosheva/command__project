@@ -1,8 +1,14 @@
 'use strict';
 
+
+
+/*
+Функция создания объекта цели из полей формы
+ */
+
 let aimMass = [];
 
-function tryF () {
+function createAimUnit () {
     const formData = new FormData(event.target);
     let obj = {};
     let aim = formData.get('aim');
@@ -24,14 +30,25 @@ function tryF () {
     obj['monthly-payment'] = monthlyPayment;
 
     aimMass.push(obj);
-    document.querySelector('#aim').reset();
+    document.querySelector('.aim-data').reset();
     console.log(aimMass);
     return aimMass;
 }
 
+
+/*
+Функция прописывания результатов вычислений в карточку цели
+ */
+
+`Для цели`
+
+/*
+Обработчик на отправку данных
+ */
+
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
-    tryF();
+    createAimUnit();
 })
 
 
