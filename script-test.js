@@ -23,18 +23,19 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 
     form.style.display = 'none';
 
-    let card = document.querySelector('.aim-card');
     cardDiv.innerHTML = card.innerHTML;
     cardDiv.querySelector('h3').innerText = aim;
     cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${finalSum} будет достигнута через ${time} месяцев при условии стартовой суммы в ${startSum} RUB и ставки по вкладу ${rate}%.`;
 
+
     let editButton = cardDiv.querySelector('.edit');
     editButton.addEventListener('click', () => {
+        cardDiv.classList.add('selected');
         let updateButton = form.querySelector('.aim-data__update-button');
         form.style.display = 'block';
         aimDataButton.style.display = 'none';
         updateButton.style.display = 'block';
-        cardDiv.classList.add('selected');
+        
 
         let inputAim = form.querySelector('.aim');
         let inputFinalSum = form.querySelector('.final-sum');
@@ -46,20 +47,15 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
         inputStartSum.value = startSum;
         inputRate.value = rate;
         inputTime.value = time;
-
-        inputAim.addEventListener('input', () => {
-            let cardSelected = document.querySelector('.selected');
-            cardSelected.querySelector('h3').innerText = inputAim.value;
-        });
+        
 
         let inputs = document.querySelectorAll('input');
         inputs.forEach((inputItem) => {
-            inputItem.addEventListener('change', () => {
-                finalSum = inputFinalSum.value;
-                startSum = inputStartSum.value;
-                rate = inputRate.value;
-                time = inputTime.value;
-                cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${finalSum} будет достигнута через ${time} месяцев при условии стартовой суммы в ${startSum} RUB и ставки по вкладу ${rate}%.`;
+            inputItem.addEventListener('keyup', () => {
+            
+                let cardSelected = document.querySelector('.selected');
+                cardSelected.querySelector('h3').innerText = inputAim.value;
+                cardSelected.querySelector('p').innerText = `Ваша цель стоимостью ${inputFinalSum.value} будет достигнута через ${inputTime.value} месяцев при условии стартовой суммы в ${inputStartSum.value} RUB и ставки по вкладу ${inputRate.value}%.`;
             });
         });
 
@@ -68,6 +64,7 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
             form.reset();
             cardDiv.classList.remove('selected');
         });
+    
     });
 
     let removeButton = cardDiv.querySelector('.remove');
