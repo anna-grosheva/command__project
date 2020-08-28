@@ -30,7 +30,7 @@ function createAimUnit () {
     obj['monthly-payment'] = monthlyPayment;
 
     aimMass.push(obj);
-    document.querySelector('.aim-data').reset();
+    // document.querySelector('.aim-data').reset();
     console.log(aimMass);
     return aimMass;
 }
@@ -49,7 +49,9 @@ function createAimUnit () {
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
+    getMonthsAmount();
     createAimCard();
+    document.querySelector('.aim-data').reset();
 })
 
 /*
@@ -118,12 +120,23 @@ function getFinalSum () {
 
 }
 
-function getTotalEarn () {
-    // let deposite = depositAmount * ((1 + ((rate)/12/100))**period)
-    //
-    // 1000*((1+((4)/12/100))**2)  = итоговая сумма 1006.68
+function getMonthsAmount () {
 
+    let result = 0;
+    let startSum = +aimMass[0]['start-sum'];
+    let finalSum = +aimMass[0]['final-sum'];
+    let rate = +aimMass[0].rate;
+    let monthPay = +aimMass[0]['monthly-payment'];
+
+    while (startSum < finalSum) {
+        startSum = startSum + (startSum * (rate / 12 / 100)) + monthPay;
+        result += 1;
+    }
+
+    console.log(result);
 }
+
+
 
 
 
@@ -159,4 +172,4 @@ radioMonthlyPayment.addEventListener('click', () => {
     aimDataButton.style.display = 'block';
 });
 
-
+// getMonthsAmount();
