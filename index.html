@@ -11,17 +11,17 @@
         <h1>Копилка</h1>
         <h2>Ставь цель и копи</h2>
         <button class="create" type="button">Добавить цель</button>
-        <form class="aim-data">
+        <form autocomplete="off" class="aim-data">
             <label>
-                На что копим?
+                <span class="first-type-span">На что копим?</span>
                 <input type="text" name="aim" class="aim">
             </label>
             <label>
-                Необходимая сумма:
+                <span class="first-type-span">Необходимая сумма:</span>
                 <input type="number" name="final-sum" class="final-sum">
             </label>
             <label>
-                Сколько уже есть?
+                <span class="first-type-span">Сколько уже есть?</span>
                 <input type="number" name="start-sum" class="start-sum">
             </label>
             <label>
@@ -40,11 +40,11 @@
                 </label>
             </div>
             <label class="aim-data__months">
-                На какой срок?
+                <span class="first-type-span">На какой срок?</span>
                 <input type="number" name="time" class="time">
             </label>
             <label class="aim-data__payment">
-                Готов платить ежемесячно:
+                <span class="second-type-span">Готов платить ежемесячно:</span>
                 <input type="number" name="monthly-payment" class="monthly-payment">
             </label>
             <button type="submit" class="aim-data__button">Сохранить</button>
