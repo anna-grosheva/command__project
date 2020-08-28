@@ -62,11 +62,13 @@ h2 {
     background-color: #DDA15E;
     color: #FEFAE0;
     outline: none;
+    display:none;
 }
 
 .aim-data__button:hover {
     opacity: 0.8;
     cursor: pointer;
+    
 }
 
 .aim-data__question {

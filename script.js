@@ -111,18 +111,21 @@ createButton.addEventListener('click', () => {
     form.style.display = 'block';
 })
 
-//Выбор radio
+//Выбор radio и сохранить
  
 let aimDataMonths = document.querySelector('.aim-data__months');
 let aimDataPayment = document.querySelector('.aim-data__payment');
 let radioTime = document.querySelector('#radio-time');
 let radioMonthlyPayment = document.querySelector('#radio-monthly-payment');
+let aimDataButton = document.querySelector('.aim-data__button');
 
 radioTime.addEventListener('click', () => {
     aimDataMonths.style.display = 'flex';
     aimDataPayment.style.display = 'none';
+    aimDataButton.style.display = 'block';
 });
 radioMonthlyPayment.addEventListener('click', () => {
     aimDataMonths.style.display = 'none';
     aimDataPayment.style.display = 'flex';
+    aimDataButton.style.display = 'block';
 });
