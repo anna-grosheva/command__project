@@ -15,6 +15,53 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
     let radioT = formData.get('radio-t');
     let time = formData.get('time');
     let monthlyPayment = formData.get('monthly-payment');
+    let result = 0;
+    let monthsAmount = 0;
+    let monthPayment = 0;
+
+    function chooseAction () {
+         if (radioTime.value === 'on') {
+            getMonthsAmount();
+        }
+    }
+
+    chooseAction();
+
+    /*
+Вычисление ежемесячного платежа
+ */
+
+    function getMonthPayment() {
+        let fSum = +finalSum;
+        let sSum = +startSum;
+        let lRate = +rate;
+        let lTime = +time;
+
+        monthPayment = 0;
+        monthPayment = (fSum - (sSum + (sSum * (lRate / 12 / 100)) * lTime)) / lTime;
+        console.log(monthPayment);
+    }
+
+    /*
+Вычисление количества месяцев, необходимых для накопления нужной суммы
+ */
+
+    function getMonthsAmount () {
+        let fSum = +finalSum;
+        let sSum = +startSum;
+        let lRate = +rate;
+        let monthPay = +monthlyPayment;
+        monthsAmount = 0;
+
+        while (sSum < fSum) {
+            sSum = sSum + (sSum * (lRate / 12 / 100)) + monthPay;
+            monthsAmount += 1;
+        }
+        console.log(monthsAmount);
+    }
+
+
+
 
     document.querySelector('.aim-data').reset();
 

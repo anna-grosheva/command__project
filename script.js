@@ -49,8 +49,9 @@ function createAimUnit () {
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
-    // getMonthsAmount();
-    getMonthPayment();
+    //
+    // getMonthPayment();
+    chooseAction ();
     createAimCard();
     document.querySelector('.aim-data').reset();
 })
@@ -153,6 +154,27 @@ function getMonthPayment() {
     console.log(result);
 }
 
+/*
+
+45646545464654
+ */
+
+/*
+Функция выбора вычисления
+ */
+
+function chooseAction () {
+    if (aimMass[0].radio === 'on') {
+        console.log(aimMass[0].radio === 'on');
+        getMonthPayment();
+    } else if (aimMass[0]['radio-m'] === 'on') {
+        console.log(aimMass[0]['radio-m'] === 'on');
+        getMonthsAmount();
+    }
+}
+
+// (aimMass[0]['radio-m'])
+
 
 // кнопка Добавить
 let form = document.querySelector('form');
@@ -184,5 +206,3 @@ radioMonthlyPayment.addEventListener('click', () => {
     aimDataPayment.style.display = 'flex';
     aimDataButton.style.display = 'block';
 });
-
-// getMonthsAmount();
