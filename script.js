@@ -61,17 +61,25 @@ function createAimCard () {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('aim-card');
 
-    const firstInner = document.createElement('div');
-    const headH3 = document.createElement('h3');
-    headH3.classList.add('aim-card__heading');
-    headH3.innerText = 'Название цели';
-    const mainContent = document.createElement('p');
-    mainContent.classList.add('aim-card__text');
-    firstInner.append(headH3);
-    firstInner.append(mainContent);
+    let card = document.querySelector('.aim-card');
+    cardDiv.innerHTML = card.innerHTML;
 
-    const secondInner = document.createElement('div');
-    secondInner.classList.add('aim-card__buttons');
+    let removeButton = cardDiv.querySelector('.remove');
+    removeButton.addEventListener('click', () => {
+        cardDiv.remove();
+    });
+
+    // const firstInner = document.createElement('div');
+    // const headH3 = document.createElement('h3');
+    // headH3.classList.add('aim-card__heading');
+    // headH3.innerText = 'Название цели';
+    // const mainContent = document.createElement('p');
+    // mainContent.classList.add('aim-card__text');
+    // firstInner.append(headH3);
+    // firstInner.append(mainContent);
+
+    // const secondInner = document.createElement('div');
+    // secondInner.classList.add('aim-card__buttons');
 
     form.parentNode.insertBefore(cardDiv, form.nextSibling);
 
@@ -119,3 +127,13 @@ radioMonthlyPayment.addEventListener('click', () => {
     aimDataPayment.style.display = 'flex';
     aimDataButton.style.display = 'block';
 });
+
+
+// удалить карточку
+// let removeButtons = document.querySelectorAll('.remove');
+
+// removeButtons.forEach(removeButton, () => {
+//     removeButton.addEventListener('click', () => {
+//         card.remove();
+//     });
+// });
