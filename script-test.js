@@ -1,21 +1,5 @@
 
 
-// function createAimUnit () {
-//     const formData = new FormData(event.target);
-    
-//     let aim = formData.get('aim');
-//     let finalSum= formData.get('final-sum');
-//     let startSum = formData.get('start-sum');
-//     let rate = formData.get('rate');
-//     let radioM = formData.get('radio-m');
-//     let radio = formData.get('radio');
-//     let time = formData.get('time');
-//     let monthlyPayment = formData.get('monthly-payment');
-
-    
-    
-    
-// }
 
 
 
@@ -41,7 +25,39 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
     let card = document.querySelector('.aim-card');
     cardDiv.innerHTML = card.innerHTML;
     cardDiv.querySelector('h3').innerText = aim;
-    cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${finalSum}`;
+    cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${finalSum} будет достигнута через ${time} месяцев при условии стартовой суммы в ${startSum} RUB и ставки по вкладу ${rate}%.`;
+
+    let editButton = cardDiv.querySelector('.edit');
+    editButton.addEventListener('click', () => {
+        cardDiv.classList.add('selected');
+        let inputAim = form.querySelector('.aim');
+        let inputFinalSum = form.querySelector('.final-sum');
+        let inputStartSum = form.querySelector('.start-sum');
+        let inputRate = form.querySelector('.rate');
+        let inputTime = form.querySelector('.time');
+        inputAim.value = aim;
+        inputFinalSum.value = finalSum;
+        inputStartSum.value = startSum;
+        inputRate.value = rate;
+        inputTime.value = time;
+
+        inputAim.addEventListener('input', () => {
+            let cardSelected = document.querySelector('.selected');
+            cardSelected.querySelector('h3').innerText = inputAim.value;
+        });
+        inputFinalSum.addEventListener('change', () => {
+            console.log(inputFinalSum.value);
+            finalSum = inputFinalSum.value;
+            cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${finalSum} будет достигнута через ${time} месяцев при условии стартовой суммы в ${startSum} RUB и ставки по вкладу ${rate}%.`;
+        })
+
+        // let inputs = document.querySelectorAll('input');
+        // inputs.forEach(inputItem, () => {
+        //     inputItem.addEventListener('change', () => {
+        //         cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${finalSum} будет достигнута через ${time} месяцев при условии стартовой суммы в ${startSum} RUB и ставки по вкладу ${rate}%.`;
+        //     });
+        // });
+    });
 
     let removeButton = cardDiv.querySelector('.remove');
     removeButton.addEventListener('click', () => {
