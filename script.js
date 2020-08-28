@@ -53,7 +53,7 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 })
 
 /*
-Функция создания каррточки цели
+Функция создания карточки цели
  */
 
 function createAimCard () {
@@ -64,7 +64,7 @@ function createAimCard () {
     const firstInner = document.createElement('div');
     const headH3 = document.createElement('h3');
     headH3.classList.add('aim-card__heading');
-    headH3.innerText = 'Название цели';
+    headH3.innerText = aimMass[objectSearch()].aim;
     const mainContent = document.createElement('p');
     mainContent.innerText = 'Текст';
     mainContent.classList.add('aim-card__text');
@@ -93,7 +93,28 @@ function createAimCard () {
 
     cardDiv.append(firstInner);
     cardDiv.append(secondInner);
+
     form.parentNode.insertBefore(cardDiv, form.nextSibling);
+}
+
+/*
+Поиск объекта для вычислений и заполнения полей карточки цели
+ */
+
+function objectSearch () {
+    let a = aimMass.length - 1;
+    return a;
+}
+
+function getFinalSum () {
+
+}
+
+function getTotalEarn () {
+    // let deposite = depositAmount * ((1 + ((rate)/12/100))**period)
+    //
+    // 1000*((1+((4)/12/100))**2)  = итоговая сумма 1006.68
+
 }
 
 
