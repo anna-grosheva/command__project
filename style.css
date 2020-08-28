@@ -70,6 +70,23 @@ h2 {
     cursor: pointer;
 }
 
+.aim-data__update-button {
+    width: 150px;
+    margin: 15px auto;
+    height: 35px;
+    border: 1px solid #DDA15E;
+    border-radius: 18px;
+    background-color: #DDA15E;
+    color: #FEFAE0;
+    outline: none;
+    display: none;
+}
+
+.aim-data__update-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 .aim-data__question {
     color: #BC6C25;
     font-weight: bold;
