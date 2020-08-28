@@ -49,6 +49,7 @@ function createAimUnit () {
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
+    createAimCard();
 })
 
 /*
@@ -85,7 +86,7 @@ function createAimCard () {
     // form.parentNode.insertBefore(testButton, form.nextSibling);
 }
 
-createAimCard();
+
 
 
 // кнопка Добавить
