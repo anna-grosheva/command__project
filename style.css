@@ -90,7 +90,10 @@ label {
 
 input {
     margin-left: 15px;
-    border: none;
+    border-bottom: 1px solid #ababab;
+    border-top: none;
+    border-left: none;
+    border-right: none;
     height: 28px;
     color: #283618;
     background-color: transparent;
