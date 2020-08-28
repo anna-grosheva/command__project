@@ -49,7 +49,8 @@ function createAimUnit () {
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
-    getMonthsAmount();
+    // getMonthsAmount();
+    getMonthPayment();
     createAimCard();
     document.querySelector('.aim-data').reset();
 })
@@ -108,9 +109,10 @@ function objectSearch () {
     return a;
 }
 
-function getFinalSum () {
 
-}
+/*
+Вычисление количества месяцев, необходимых для накопления нужной суммы
+ */
 
 function getMonthsAmount () {
 
@@ -124,13 +126,24 @@ function getMonthsAmount () {
         startSum = startSum + (startSum * (rate / 12 / 100)) + monthPay;
         result += 1;
     }
-
     console.log(result);
 }
 
+/*
+Вычисление ежемесячного платежа
+ */
 
+function getMonthPayment() {
+    let result = 0;
+    let startSum = +aimMass[0]['start-sum'];
+    let finalSum = +aimMass[0]['final-sum'];
+    let rate = +aimMass[0].rate;
+    let time = +aimMass[0].time;
 
+    result = (finalSum - (startSum + (startSum * (rate / 12 / 100)) * time)) / time;
 
+    console.log(result);
+}
 
 
 // кнопка Добавить
