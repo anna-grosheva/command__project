@@ -68,7 +68,6 @@ h2 {
 .aim-data__button:hover {
     opacity: 0.8;
     cursor: pointer;
-    
 }
 
 .aim-data__question {
@@ -92,13 +91,10 @@ label {
 
 input {
     margin-left: 15px;
-    border-bottom: 1px solid #ababab;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
     height: 28px;
     color: #283618;
-    background-color: transparent;
+    background-color: white;
     outline: none;
     font-size: 16px;
 }
@@ -106,6 +102,24 @@ input {
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+input[type='number']:not(.rate) {
+    width: 100%;
+}
+
+input[type='text'] {
+    width: 100%;
+}
+
+.first-type-span {
+    width: 48%;
+    text-align: left;
+}
+
+.second-type-span {
+    width: 80%;
+    text-align: left;
 }
 
 .choose-option {
