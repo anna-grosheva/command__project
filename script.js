@@ -1,6 +1,8 @@
 'use strict';
 
-
+let form = document.querySelector('form');
+let card = document.querySelector('.aim-card');
+let divAllCards = document.querySelector('.all-cards');
 
 /*
 Функция создания объекта цели из полей формы
@@ -49,7 +51,7 @@ function createAimUnit () {
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
-    chooseAction ();
+    chooseAction();
     createAimCard();
     document.querySelector('.aim-data').reset();
 })
@@ -59,11 +61,8 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
  */
 
 function createAimCard () {
-    const form = document.querySelector('.aim-data');
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('aim-card');
-
-    let card = document.querySelector('.aim-card');
     cardDiv.innerHTML = card.innerHTML;
 
     let removeButton = cardDiv.querySelector('.remove');
@@ -71,9 +70,16 @@ function createAimCard () {
         cardDiv.remove();
     });
 
+    let editButton = cardDiv.querySelector('.edit');
+    editButton.addEventListener('click', () => {
+        cardDiv.classList.add('selected');
+        
+    });
+
+    divAllCards.prepend(cardDiv);
 
 
-    form.parentNode.insertBefore(cardDiv, form.nextSibling);
+    console.log(divAllCards);
 }
 
 /*
@@ -140,8 +146,7 @@ function chooseAction () {
 
 
 // кнопка Добавить
-let form = document.querySelector('form');
-let card = document.querySelector('.aim-card');
+
 let createButton = document.querySelector('.create');
 
 form.style.display = 'none';
