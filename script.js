@@ -38,6 +38,7 @@ function createAimUnit () {
     obj.time = time;
     obj['monthly-payment'] = monthlyPayment;
 
+
     aimMass.push(obj);
     // document.querySelector('.aim-data').reset();
     console.log(aimMass);
@@ -58,8 +59,9 @@ function createAimUnit () {
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
-    chooseAction();
-    createAimCard();
+    // chooseAction();
+    // createAimCard();
+    render();
     document.querySelector('.aim-data').reset();
 })
 
@@ -67,10 +69,16 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 Функция создания карточки цели
  */
 
-function createAimCard () {
-    const cardDiv = document.createElement('div');
-    cardDiv.classList.add('aim-card');
-    cardDiv.innerHTML = card.innerHTML;
+function render () {
+    divAllCards.innerHTML = '';
+    for (let i = 0; i < aimMass.length; i ++) {
+        // let index = i;
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('aim-card');
+        cardDiv.innerHTML = card.innerHTML;
+        cardDiv.querySelector('h3').innerText = aimMass[i].aim;
+
+        getMonthPayment(i);
 
     divAllCards.prepend(cardDiv);
 
@@ -85,7 +93,7 @@ function createAimCard () {
         editCardData();
     });
 
-    
+
 }
 
 /*
@@ -103,54 +111,58 @@ function editCardData() {
             inputTime.value = aimMass[index].time;
         }
     });
+
+
+        divAllCards.prepend(cardDiv);
+
+        console.log(divAllCards);
 }
-
-
-
+}
 
 /*
 Поиск объекта для вычислений и заполнения полей карточки цели
  */
 
-function objectSearch () {
-    let a = aimMass.length - 1;
-    return a;
-}
+// function objectSearch () {
+//     let a = aimMass.length - 1;
+//     return a;
+// }
 
 
 /*
 Вычисление количества месяцев, необходимых для накопления нужной суммы
  */
 
-function getMonthsAmount () {
-
-    let result = 0;
-    let startSum = +aimMass[0]['start-sum'];
-    let finalSum = +aimMass[0]['final-sum'];
-    let rate = +aimMass[0].rate;
-    let monthPay = +aimMass[0]['monthly-payment'];
-
-    while (startSum < finalSum) {
-        startSum = startSum + (startSum * (rate / 12 / 100)) + monthPay;
-        result += 1;
-    }
-    console.log(result);
-}
+// function getMonthsAmount () {
+//
+//     let result = 0;
+//     let startSum = +aimMass[0]['start-sum'];
+//     let finalSum = +aimMass[0]['final-sum'];
+//     let rate = +aimMass[0].rate;
+//     let monthPay = +aimMass[0]['monthly-payment'];
+//
+//     while (startSum < finalSum) {
+//         startSum = startSum + (startSum * (rate / 12 / 100)) + monthPay;
+//         result += 1;
+//     }
+//     console.log(result);
+// }
 
 /*
 Вычисление ежемесячного платежа
  */
 
-function getMonthPayment() {
+function getMonthPayment(index) {
     let result = 0;
-    let startSum = +aimMass[0]['start-sum'];
-    let finalSum = +aimMass[0]['final-sum'];
-    let rate = +aimMass[0].rate;
-    let time = +aimMass[0].time;
+    let startSum = +aimMass[index]['start-sum'];
+    let finalSum = +aimMass[index]['final-sum'];
+    let rate = +aimMass[index].rate;
+    let time = +aimMass[index].time;
 
-    result = (finalSum - (startSum + (startSum * (rate / 12 / 100)) * time)) / time;
+    aimMass[index]['monthly-payment'] = ((finalSum - (startSum + (startSum * (rate / 12 / 100)) * time)) / time).toFixed(2);
 
-    console.log(result);
+    console.log(aimMass[index]['monthly-payment']);
+    console.log(aimMass);
 }
 
 
@@ -159,15 +171,15 @@ function getMonthPayment() {
 Функция выбора вычисления
  */
 
-function chooseAction () {
-    if (aimMass[0].radio === 'on') {
-        console.log(aimMass[0].radio === 'on');
-        getMonthPayment();
-    } else if (aimMass[0]['radio-m'] === 'on') {
-        console.log(aimMass[0]['radio-m'] === 'on');
-        getMonthsAmount();
-    }
-}
+// function chooseAction (index) {
+//     if (aimMass[index].radio === 'on') {
+//         console.log(aimMass[index].radio === 'on');
+//         getMonthPayment();
+//     } else if (aimMass[index]['radio-m'] === 'on') {
+//         console.log(aimMass[index]['radio-m'] === 'on');
+//         getMonthsAmount();
+//     }
+// }
 
 
 
@@ -190,6 +202,10 @@ let radioTime = document.querySelector('#radio-time');
 let radioMonthlyPayment = document.querySelector('#radio-monthly-payment');
 let aimDataButton = document.querySelector('.aim-data__button');
 
+aimDataButton.addEventListener('click', () => {
+    form.style.display = 'none';
+})
+
 radioTime.addEventListener('click', () => {
     aimDataMonths.style.display = 'flex';
     aimDataPayment.style.display = 'none';
@@ -200,3 +216,14 @@ radioMonthlyPayment.addEventListener('click', () => {
     aimDataPayment.style.display = 'flex';
     aimDataButton.style.display = 'block';
 });
+
+
+// function radiocheck1() {
+//     if ( this.value === 'radio-t'){
+//         console.log('time');
+//         getMonthsAmount();
+//     } else if (this.value === 'radio-m') {
+//         getMonthPayment();
+//         console.log('month');
+//     }
+// }
