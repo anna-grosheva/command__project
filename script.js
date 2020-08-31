@@ -93,6 +93,7 @@ function render() {
         let editButton = cardDiv.querySelector('.edit');
         editButton.addEventListener('click', () => {
             cardDiv.classList.add('selected');
+            form.style.display = 'block';
             editCardData();
         });
     }
