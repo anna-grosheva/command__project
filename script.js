@@ -63,7 +63,7 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
     // chooseAction();
-    // createAimCard();
+    createAimCard ();
     render();
     document.querySelector('.aim-data').reset();
 })
@@ -184,7 +184,7 @@ function getMonthPayment(index) {
 // кнопка Добавить
 
 function createAim () {
-    form.style.display = 'block';
+    form.style.display = 'flex';
 }
 
 createButton.addEventListener('click', () => {
@@ -214,6 +214,12 @@ let aimDataButton = document.querySelector('.aim-data__button');
 
 function minimizeForm () {
     form.style.display = 'none';
+}
+
+card.style.display ='none';
+
+function createAimCard () {
+    card.style.display = 'flex';
 }
 
 aimDataButton.addEventListener('click', () => {
