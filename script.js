@@ -4,6 +4,7 @@ let form = document.querySelector('form');
 let card = document.querySelector('.aim-card');
 let divAllCards = document.querySelector('.all-cards');
 let createButton = document.querySelector('.create');
+let aimDataButton = document.querySelector('.aim-data__button');
 
 let inputAim = form.querySelector('.aim');
 let inputFinalSum = form.querySelector('.final-sum');
@@ -44,17 +45,8 @@ function createAimUnit() {
 
 
     aimMass.push(obj);
-    // document.querySelector('.aim-data').reset();
-    console.log(aimMass);
     return aimMass;
 }
-
-
-/*
-Функция прописывания результатов вычислений в карточку цели
- */
-
-`Для цели`
 
 /*
 Обработчик на отправку данных
@@ -66,6 +58,7 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
     createAimCard ();
     render();
     document.querySelector('.aim-data').reset();
+    minimizeForm();
 })
 
 /*
@@ -104,10 +97,8 @@ function render() {
             editCardData();
         });
 
-        let objUpdateButton = document.querySelector('.aim-data__update-button');
         objUpdateButton.addEventListener('click', (event) => {
             objUpdate(objIndex);
-            // document.querySelector('.aim-data').reset();
             form.style.display = 'none';
             event.target.style.display = 'none';
             document.querySelector('.aim-data__button').style.display = 'block';
@@ -119,12 +110,13 @@ function render() {
 /*
 Функция заполнения формы при редактировании
 */
+
 function editCardData() {
     let cardDivs = document.querySelectorAll('.aim-card');
     cardDivs.forEach((cardDiv, index) => {
         if (cardDiv.classList.contains('selected')) {
             objIndex = index;
-            console.log(aimMass[index]);
+            // console.log(aimMass[index]);
             inputAim.value = aimMass[index].aim;
             inputFinalSum.value = aimMass[index]['final-sum'];
             inputStartSum.value = aimMass[index]['start-sum'];
@@ -141,8 +133,7 @@ function objUpdate (objIndex) {
     activeObject['start-sum'] = inputStartSum.value;
     activeObject.rate = inputRate.value;
     activeObject.time = inputTime.value;
-    // getMonthPayment(objIndex);
-    console.log(activeObject);
+    // console.log(activeObject);
 }
 
 function objDelete (cardDiv) {
@@ -155,39 +146,8 @@ function objDelete (cardDiv) {
             console.log(aimMass);
             cardDiv.remove();
         };
-
     });
 }
-
-
-/*
-Поиск объекта для вычислений и заполнения полей карточки цели
- */
-
-// function objectSearch () {
-//     let a = aimMass.length - 1;
-//     return a;
-// }
-
-
-/*
-Вычисление количества месяцев, необходимых для накопления нужной суммы
- */
-
-// function getMonthsAmount () {
-//
-//     let result = 0;
-//     let startSum = +aimMass[0]['start-sum'];
-//     let finalSum = +aimMass[0]['final-sum'];
-//     let rate = +aimMass[0].rate;
-//     let monthPay = +aimMass[0]['monthly-payment'];
-//
-//     while (startSum < finalSum) {
-//         startSum = startSum + (startSum * (rate / 12 / 100)) + monthPay;
-//         result += 1;
-//     }
-//     console.log(result);
-// }
 
 /*
 Вычисление ежемесячного платежа
@@ -200,27 +160,8 @@ function getMonthPayment(index) {
     let time = +aimMass[index].time;
 
     aimMass[index]['monthly-payment'] = ((finalSum - (startSum + (startSum * (rate / 12 / 100)) * time)) / time).toFixed(2);
-
-    console.log(aimMass[index]['monthly-payment']);
-
+    // console.log(aimMass[index]['monthly-payment']);
 }
-
-
-/*
-Функция выбора вычисления
- */
-
-// function chooseAction (index) {
-//     if (aimMass[index].radio === 'on') {
-//         console.log(aimMass[index].radio === 'on');
-//         getMonthPayment();
-//     } else if (aimMass[index]['radio-m'] === 'on') {
-//         console.log(aimMass[index]['radio-m'] === 'on');
-//         getMonthsAmount();
-//     }
-// }
-
-
 
 // кнопка Добавить
 
@@ -234,24 +175,9 @@ createButton.addEventListener('click', () => {
 
 })
 
-//Выбор radio и сохранить
+// let aimDataMonths = document.querySelector('.aim-data__months');
+// let aimDataPayment = document.querySelector('.aim-data__payment');
 
-let aimDataMonths = document.querySelector('.aim-data__months');
-let aimDataPayment = document.querySelector('.aim-data__payment');
-let radioTime = document.querySelector('#radio-time');
-let radioMonthlyPayment = document.querySelector('#radio-monthly-payment');
-let aimDataButton = document.querySelector('.aim-data__button');
-
-// radioTime.addEventListener('click', () => {
-//     aimDataMonths.style.display = 'flex';
-//     aimDataPayment.style.display = 'none';
-//     aimDataButton.style.display = 'block';
-// });
-// radioMonthlyPayment.addEventListener('click', () => {
-//     aimDataMonths.style.display = 'none';
-//     aimDataPayment.style.display = 'flex';
-//     aimDataButton.style.display = 'block';
-// });
 
 //скрытие кнопок
 
@@ -264,10 +190,6 @@ card.style.display ='none';
 function createAimCard () {
     card.style.display = 'flex';
 }
-
-aimDataButton.addEventListener('click', () => {
-    minimizeForm();
-});
 
 function hideSubmitBtn () {
     aimDataButton.style.display = 'none';

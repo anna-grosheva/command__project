@@ -360,3 +360,56 @@ function radiocheck1() {
     }
 }
 
+/*
+Поиск объекта для вычислений и заполнения полей карточки цели
+ */
+
+// function objectSearch () {
+//     let a = aimMass.length - 1;
+//     return a;
+// }
+
+
+/*
+Вычисление количества месяцев, необходимых для накопления нужной суммы
+ */
+
+// function getMonthsAmount () {
+//
+//     let result = 0;
+//     let startSum = +aimMass[0]['start-sum'];
+//     let finalSum = +aimMass[0]['final-sum'];
+//     let rate = +aimMass[0].rate;
+//     let monthPay = +aimMass[0]['monthly-payment'];
+//
+//     while (startSum < finalSum) {
+//         startSum = startSum + (startSum * (rate / 12 / 100)) + monthPay;
+//         result += 1;
+//     }
+//     console.log(result);
+// }
+
+/*
+Функция выбора вычисления
+ */
+
+// function chooseAction (index) {
+//     if (aimMass[index].radio === 'on') {
+//         console.log(aimMass[index].radio === 'on');
+//         getMonthPayment();
+//     } else if (aimMass[index]['radio-m'] === 'on') {
+//         console.log(aimMass[index]['radio-m'] === 'on');
+//         getMonthsAmount();
+//     }
+// }
+
+// radioTime.addEventListener('click', () => {
+//     aimDataMonths.style.display = 'flex';
+//     aimDataPayment.style.display = 'none';
+//     aimDataButton.style.display = 'block';
+// });
+// radioMonthlyPayment.addEventListener('click', () => {
+//     aimDataMonths.style.display = 'none';
+//     aimDataPayment.style.display = 'flex';
+//     aimDataButton.style.display = 'block';
+// });

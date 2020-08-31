@@ -14,7 +14,7 @@
         <form autocomplete="off" class="aim-data">
             <label>
                 <span class="first-type-span">На что копим?</span>
-                <input type="text" name="aim" class="aim">
+                <input type="text" name="aim" class="aim" required>
             </label>
             <label>
                 <span class="first-type-span">Необходимая сумма:</span>
@@ -22,11 +22,11 @@
             </label>
             <label>
                 <span class="first-type-span">Сколько уже есть?</span>
-                <input type="number" name="start-sum" class="start-sum">
+                <input type="number" name="start-sum" class="start-sum" required>
             </label>
             <label>
                 Процентная ставка вашего вклада:
-                <input type="number" name="rate" class="rate">
+                <input type="number" name="rate" class="rate" required>
             </label>
             <!-- <p class="aim-data__question">Что нужно рассчитать?</p>
             <div class="choose-option">
@@ -41,7 +41,7 @@
             </div> -->
             <label class="aim-data__months">
                 <span class="first-type-span">На какой срок?</span>
-                <input type="number" name="time" class="time">
+                <input type="number" name="time" class="time" required>
             </label>
             <label class="aim-data__payment">
                 <span class="second-type-span">Готов платить ежемесячно:</span>
