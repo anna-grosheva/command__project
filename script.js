@@ -20,11 +20,11 @@ let objIndex = 0;
 
 let aimMass = [];
 
-function createAimUnit () {
+function createAimUnit() {
     const formData = new FormData(event.target);
     let obj = {};
     let aim = formData.get('aim');
-    let finalSum= formData.get('final-sum');
+    let finalSum = formData.get('final-sum');
     let startSum = formData.get('start-sum');
     let rate = formData.get('rate');
     let radioM = formData.get('radio');
@@ -72,7 +72,7 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 Функция создания карточки цели
  */
 
-function render () {
+function render() {
     divAllCards.innerHTML = '';
     for (let i = 0; i < aimMass.length; i ++) {
         // let index = i;
@@ -160,9 +160,8 @@ function getMonthPayment(index) {
     aimMass[index]['monthly-payment'] = ((finalSum - (startSum + (startSum * (rate / 12 / 100)) * time)) / time).toFixed(2);
 
     console.log(aimMass[index]['monthly-payment']);
-    console.log(aimMass);
-}
 
+}
 
 
 /*
@@ -192,7 +191,7 @@ createButton.addEventListener('click', () => {
 })
 
 //Выбор radio и сохранить
- 
+
 let aimDataMonths = document.querySelector('.aim-data__months');
 let aimDataPayment = document.querySelector('.aim-data__payment');
 let radioTime = document.querySelector('#radio-time');
