@@ -63,7 +63,6 @@ function createAimUnit() {
 document.querySelector('.aim-data').addEventListener('submit', (event) => {
     event.preventDefault();
     createAimUnit();
-    // chooseAction();
     createAimCard ();
     render();
     document.querySelector('.aim-data').reset();
@@ -75,6 +74,7 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 
 function render() {
     divAllCards.innerHTML = '';
+
     for (let i = 0; i < aimMass.length; i ++) {
 
         const cardDiv = document.createElement('div');
@@ -104,9 +104,12 @@ function render() {
         });
 
         let objUpdateButton = document.querySelector('.aim-data__update-button');
-        objUpdateButton.addEventListener('click', () => {
+        objUpdateButton.addEventListener('click', (event) => {
             objUpdate(objIndex);
+            // document.querySelector('.aim-data').reset();
             form.style.display = 'none';
+            event.target.style.display = 'none';
+            document.querySelector('.aim-data__button').style.display = 'block';
             render();
         });
     }
@@ -226,6 +229,8 @@ function createAim () {
 
 createButton.addEventListener('click', () => {
     createAim();
+    document.querySelector('.aim-data').reset();
+
 })
 
 //Выбор radio и сохранить
