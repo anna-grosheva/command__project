@@ -76,13 +76,14 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 function render() {
     divAllCards.innerHTML = '';
     for (let i = 0; i < aimMass.length; i ++) {
-        // let index = i;
+
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('aim-card');
         cardDiv.innerHTML = card.innerHTML;
         cardDiv.querySelector('h3').innerText = aimMass[i].aim;
 
         getMonthPayment(i);
+        cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${aimMass[i]['final-sum']} будет достигнута через ${aimMass[i].time} месяцев при условии стартовой суммы в ${aimMass[i]['start-sum']} RUB и ежемесячном платеже в размере ${aimMass[i]['monthly-payment']} RUB.`;
 
         divAllCards.append(cardDiv);
 
@@ -188,7 +189,6 @@ function objDelete (cardDiv) {
  */
 
 function getMonthPayment(index) {
-    let result = 0;
     let startSum = +aimMass[index]['start-sum'];
     let finalSum = +aimMass[index]['final-sum'];
     let rate = +aimMass[index].rate;
