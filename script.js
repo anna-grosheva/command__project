@@ -11,6 +11,8 @@ let inputStartSum = form.querySelector('.start-sum');
 let inputRate = form.querySelector('.rate');
 let inputTime = form.querySelector('.time');
 
+let objIndex = 0;
+
 
 /*
 Функция создания объекта цели из полей формы
@@ -103,6 +105,7 @@ function editCardData() {
     let cardDivs = document.querySelectorAll('.aim-card');
     cardDivs.forEach((cardDiv, index) => {
         if (cardDiv.classList.contains('selected')) {
+            objIndex = index;
             console.log(aimMass[index]);
             inputAim.value = aimMass[index].aim;
             inputFinalSum.value = aimMass[index]['final-sum'];
