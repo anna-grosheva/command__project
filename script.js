@@ -97,6 +97,8 @@ function render() {
         editButton.addEventListener('click', () => {
             cardDiv.classList.add('selected');
             form.style.display = 'flex';
+            hideSubmitBtn();
+            showUpdateBtn();
             editCardData();
         });
 
@@ -259,3 +261,11 @@ function createAimCard () {
 aimDataButton.addEventListener('click', () => {
     minimizeForm();
 });
+
+function hideSubmitBtn () {
+    aimDataButton.style.display = 'none';
+}
+
+function showUpdateBtn () {
+    objUpdateButton.style.display = 'block';
+}
