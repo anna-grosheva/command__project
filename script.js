@@ -213,17 +213,9 @@ let aimDataButton = document.querySelector('.aim-data__button');
 //скрытие кнопок
 
 function minimizeForm () {
-    let aimData = document.querySelector('.aim-data');
-    aimData.style.display = 'none';
-}
-
-function showAimCard () {
-    let aimCard = document.querySelector('.aim-card');
-    aimCard.style.display = 'flex';
-    aimDataButton.style.display = 'block';
+    form.style.display = 'none';
 }
 
 aimDataButton.addEventListener('click', () => {
     minimizeForm();
-    showAimCard();
 });
