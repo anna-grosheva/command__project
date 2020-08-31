@@ -12,6 +12,7 @@ let inputRate = form.querySelector('.rate');
 let inputTime = form.querySelector('.time');
 
 let objIndex = 0;
+let objUpdateButton = document.querySelector('.aim-data__update-button');
 
 
 /*
@@ -83,18 +84,26 @@ function render() {
 
         getMonthPayment(i);
 
-        divAllCards.prepend(cardDiv);
+        divAllCards.append(cardDiv);
 
         let removeButton = cardDiv.querySelector('.remove');
         removeButton.addEventListener('click', () => {
-            cardDiv.remove();
+            objDelete(cardDiv);
+            render();
+            // console.log(aimMass);
         });
 
         let editButton = cardDiv.querySelector('.edit');
         editButton.addEventListener('click', () => {
             cardDiv.classList.add('selected');
-            form.style.display = 'block';
+            form.style.display = 'flex';
             editCardData();
+        });
+
+        let objUpdateButton = document.querySelector('.aim-data__update-button');
+        objUpdateButton.addEventListener('click', () => {
+            objUpdate(objIndex);
+            render();
         });
     }
 }
@@ -114,6 +123,31 @@ function editCardData() {
             inputRate.value = aimMass[index].rate;
             inputTime.value = aimMass[index].time;
         }
+    });
+}
+
+function objUpdate (objIndex) {
+    let activeObject = aimMass[objIndex];
+    activeObject.aim = inputAim.value;
+    activeObject['final-sum'] = inputFinalSum.value;
+    activeObject['start-sum'] = inputStartSum.value;
+    activeObject.rate = inputRate.value;
+    activeObject.time = inputTime.value;
+    // getMonthPayment(objIndex);
+    console.log(activeObject);
+}
+
+function objDelete (cardDiv) {
+    cardDiv.classList.add('for-delete');
+    let cardDivs = document.querySelectorAll('.aim-card');
+    cardDivs.forEach((cardDiv, index) => {
+        if (cardDiv.classList.contains('for-delete')) {
+            objIndex = index;
+            aimMass.splice(objIndex, 1);
+            console.log(aimMass);
+            cardDiv.remove();
+        };
+
     });
 }
 
