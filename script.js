@@ -5,6 +5,13 @@ let card = document.querySelector('.aim-card');
 let divAllCards = document.querySelector('.all-cards');
 let createButton = document.querySelector('.create');
 
+let inputAim = form.querySelector('.aim');
+let inputFinalSum = form.querySelector('.final-sum');
+let inputStartSum = form.querySelector('.start-sum');
+let inputRate = form.querySelector('.rate');
+let inputTime = form.querySelector('.time');
+
+
 /*
 Функция создания объекта цели из полей формы
  */
@@ -18,7 +25,7 @@ function createAimUnit () {
     let finalSum= formData.get('final-sum');
     let startSum = formData.get('start-sum');
     let rate = formData.get('rate');
-    let radioM = formData.get('radio-m');
+    let radioM = formData.get('radio');
     let radio = formData.get('radio');
     let time = formData.get('time');
     let monthlyPayment = formData.get('monthly-payment');
@@ -66,6 +73,8 @@ function createAimCard () {
     cardDiv.classList.add('aim-card');
     cardDiv.innerHTML = card.innerHTML;
 
+    divAllCards.prepend(cardDiv);
+
     let removeButton = cardDiv.querySelector('.remove');
     removeButton.addEventListener('click', () => {
         cardDiv.remove();
@@ -74,14 +83,31 @@ function createAimCard () {
     let editButton = cardDiv.querySelector('.edit');
     editButton.addEventListener('click', () => {
         cardDiv.classList.add('selected');
-        
+        editCardData();
     });
 
-    divAllCards.prepend(cardDiv);
-
-
-    console.log(divAllCards);
+    
 }
+
+/*
+Функция заполнения формы при редактировании
+*/
+function editCardData() {
+    let cardDivs = document.querySelectorAll('.aim-card');
+    cardDivs.forEach((cardDiv, index) => {
+        if (cardDiv.classList.contains('selected')) {
+            console.log(aimMass[index]);
+            inputAim.value = aimMass[index].aim;
+            inputFinalSum.value = aimMass[index]['final-sum'];
+            inputStartSum.value = aimMass[index]['start-sum'];
+            inputRate.value = aimMass[index].rate;
+            inputTime.value = aimMass[index].time;
+        }
+    });
+}
+
+
+
 
 /*
 Поиск объекта для вычислений и заполнения полей карточки цели
