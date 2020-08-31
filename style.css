@@ -158,7 +158,6 @@ input[type='text'] {
 }
 
 .aim-card {
-    display: none;
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
