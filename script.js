@@ -3,6 +3,7 @@
 let form = document.querySelector('form');
 let card = document.querySelector('.aim-card');
 let divAllCards = document.querySelector('.all-cards');
+let createButton = document.querySelector('.create');
 
 /*
 Функция создания объекта цели из полей формы
@@ -147,13 +148,12 @@ function chooseAction () {
 
 // кнопка Добавить
 
-let createButton = document.querySelector('.create');
-
-form.style.display = 'none';
-card.style.display = 'none';
+function createAim () {
+    form.style.display = 'block';
+}
 
 createButton.addEventListener('click', () => {
-    form.style.display = 'block';
+    createAim();
 })
 
 //Выбор radio и сохранить
@@ -164,13 +164,31 @@ let radioTime = document.querySelector('#radio-time');
 let radioMonthlyPayment = document.querySelector('#radio-monthly-payment');
 let aimDataButton = document.querySelector('.aim-data__button');
 
-radioTime.addEventListener('click', () => {
-    aimDataMonths.style.display = 'flex';
-    aimDataPayment.style.display = 'none';
+// radioTime.addEventListener('click', () => {
+//     aimDataMonths.style.display = 'flex';
+//     aimDataPayment.style.display = 'none';
+//     aimDataButton.style.display = 'block';
+// });
+// radioMonthlyPayment.addEventListener('click', () => {
+//     aimDataMonths.style.display = 'none';
+//     aimDataPayment.style.display = 'flex';
+//     aimDataButton.style.display = 'block';
+// });
+
+//скрытие кнопок
+
+function minimizeForm () {
+    let aimData = document.querySelector('.aim-data');
+    aimData.style.display = 'none';
+}
+
+function showAimCard () {
+    let aimCard = document.querySelector('.aim-card');
+    aimCard.style.display = 'flex';
     aimDataButton.style.display = 'block';
-});
-radioMonthlyPayment.addEventListener('click', () => {
-    aimDataMonths.style.display = 'none';
-    aimDataPayment.style.display = 'flex';
-    aimDataButton.style.display = 'block';
+}
+
+aimDataButton.addEventListener('click', () => {
+    minimizeForm();
+    showAimCard();
 });

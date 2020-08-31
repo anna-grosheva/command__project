@@ -51,6 +51,7 @@ h2 {
     width: 480px;
     font-size: 14px;
     box-sizing: border-box;
+    display: none;
 }
 
 .aim-data__button {
@@ -62,7 +63,7 @@ h2 {
     background-color: #DDA15E;
     color: #FEFAE0;
     outline: none;
-    display:none;
+    /* display:none; */
 }
 
 .aim-data__button:hover {
@@ -149,7 +150,7 @@ input[type='text'] {
 }
 
 .aim-data__months {
-    display: none;
+    /* display: none; */
 }
 
 .aim-data__payment {
@@ -157,7 +158,8 @@ input[type='text'] {
 }
 
 .aim-card {
-    display: flex;
+    display: none;
+    /* display: flex; */
     justify-content: space-between;
     border: 1px solid black;
     box-sizing: border-box;
@@ -169,6 +171,11 @@ input[type='text'] {
     background-color: #606c38;
     color: #FEFAE0;
     padding: 10px;
+    opacity: 0.7;
+}
+
+.aim-card:hover {
+    opacity: 1;
 }
 
 .aim-card__buttons {
