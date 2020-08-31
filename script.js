@@ -106,6 +106,7 @@ function render() {
         let objUpdateButton = document.querySelector('.aim-data__update-button');
         objUpdateButton.addEventListener('click', () => {
             objUpdate(objIndex);
+            form.style.display = 'none';
             render();
         });
     }
