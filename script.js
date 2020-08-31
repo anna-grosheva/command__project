@@ -18,11 +18,11 @@ let inputTime = form.querySelector('.time');
 
 let aimMass = [];
 
-function createAimUnit () {
+function createAimUnit() {
     const formData = new FormData(event.target);
     let obj = {};
     let aim = formData.get('aim');
-    let finalSum= formData.get('final-sum');
+    let finalSum = formData.get('final-sum');
     let startSum = formData.get('start-sum');
     let rate = formData.get('rate');
     let radioM = formData.get('radio');
@@ -70,7 +70,7 @@ document.querySelector('.aim-data').addEventListener('submit', (event) => {
 Функция создания карточки цели
  */
 
-function render () {
+function render() {
     divAllCards.innerHTML = '';
     for (let i = 0; i < aimMass.length; i ++) {
         // let index = i;
@@ -81,43 +81,36 @@ function render () {
 
         getMonthPayment(i);
 
-    divAllCards.prepend(cardDiv);
-
-    let removeButton = cardDiv.querySelector('.remove');
-    removeButton.addEventListener('click', () => {
-        cardDiv.remove();
-    });
-
-    let editButton = cardDiv.querySelector('.edit');
-    editButton.addEventListener('click', () => {
-        cardDiv.classList.add('selected');
-        editCardData();
-    });
-
-    
-}
-
-/*
-Функция заполнения формы при редактировании
-*/
-function editCardData() {
-    let cardDivs = document.querySelectorAll('.aim-card');
-    cardDivs.forEach((cardDiv, index) => {
-        if (cardDiv.classList.contains('selected')) {
-            console.log(aimMass[index]);
-            inputAim.value = aimMass[index].aim;
-            inputFinalSum.value = aimMass[index]['final-sum'];
-            inputStartSum.value = aimMass[index]['start-sum'];
-            inputRate.value = aimMass[index].rate;
-            inputTime.value = aimMass[index].time;
-        }
-    });
-
-
         divAllCards.prepend(cardDiv);
 
-        console.log(divAllCards);
+        let removeButton = cardDiv.querySelector('.remove');
+        removeButton.addEventListener('click', () => {
+            cardDiv.remove();
+        });
+
+        let editButton = cardDiv.querySelector('.edit');
+        editButton.addEventListener('click', () => {
+            cardDiv.classList.add('selected');
+            editCardData();
+        });
 }
+
+    /*
+    Функция заполнения формы при редактировании
+    */
+    function editCardData() {
+        let cardDivs = document.querySelectorAll('.aim-card');
+        cardDivs.forEach((cardDiv, index) => {
+            if (cardDiv.classList.contains('selected')) {
+                console.log(aimMass[index]);
+                inputAim.value = aimMass[index].aim;
+                inputFinalSum.value = aimMass[index]['final-sum'];
+                inputStartSum.value = aimMass[index]['start-sum'];
+                inputRate.value = aimMass[index].rate;
+                inputTime.value = aimMass[index].time;
+            }
+        });
+    }
 }
 
 /*
@@ -163,9 +156,8 @@ function getMonthPayment(index) {
     aimMass[index]['monthly-payment'] = ((finalSum - (startSum + (startSum * (rate / 12 / 100)) * time)) / time).toFixed(2);
 
     console.log(aimMass[index]['monthly-payment']);
-    console.log(aimMass);
-}
 
+}
 
 
 /*
@@ -195,7 +187,7 @@ createButton.addEventListener('click', () => {
 })
 
 //Выбор radio и сохранить
- 
+
 let aimDataMonths = document.querySelector('.aim-data__months');
 let aimDataPayment = document.querySelector('.aim-data__payment');
 let radioTime = document.querySelector('#radio-time');
