@@ -163,7 +163,7 @@ input[type='text'] {
     border: 1px solid black;
     box-sizing: border-box;
     width: 300px;
-    height: 150px;
+    height: 235px;
     border-radius: 8px;
     border: 1px solid #606c38;
     margin: 30px auto 5px;
@@ -215,5 +215,16 @@ input[type='text'] {
 
 .selected {
     outline: none;
+}
+
+.white-bold {
+    font-weight: bold;
+    font-size: 16px;
+    color: white; 
+}
+
+.cursive {
+    font-style: italic;
+    font-size: 13px;
 }
 

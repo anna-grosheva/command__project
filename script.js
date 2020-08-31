@@ -83,7 +83,8 @@ function render() {
         cardDiv.querySelector('h3').innerText = aimMass[i].aim;
 
         getMonthPayment(i);
-        cardDiv.querySelector('p').innerText = `Ваша цель стоимостью ${aimMass[i]['final-sum']} будет достигнута через ${aimMass[i].time} месяцев при условии стартовой суммы в ${aimMass[i]['start-sum']} RUB и ежемесячном платеже в размере ${aimMass[i]['monthly-payment']} RUB.`;
+
+        cardDiv.querySelector('p').innerHTML = '<p>' + `Стоимость: ${aimMass[i]['final-sum']} RUB` + '</p>' + '<p>' + `Будет достигнута: ${aimMass[i].time} месяцев` + '</p>' + '<p class="white-bold">' + `Ежемесячный платеж: ${aimMass[i]['monthly-payment']} RUB` + '</p>' + '<p class="cursive">' + `При условии стартовой суммы в ${aimMass[i]['start-sum']} RUB и ставке вашего вклада ${aimMass[i].rate}%.` + '</p>';
 
         divAllCards.append(cardDiv);
 
