@@ -83,7 +83,7 @@ function render() {
 
         getMonthPayment(i);
 
-        divAllCards.prepend(cardDiv);
+        divAllCards.append(cardDiv);
 
         let removeButton = cardDiv.querySelector('.remove');
         removeButton.addEventListener('click', () => {
@@ -93,7 +93,7 @@ function render() {
         let editButton = cardDiv.querySelector('.edit');
         editButton.addEventListener('click', () => {
             cardDiv.classList.add('selected');
-            form.style.display = 'block';
+            form.style.display = 'flex';
             editCardData();
         });
     }
