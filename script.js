@@ -92,8 +92,7 @@ function render () {
         cardDiv.classList.add('selected');
         editCardData();
     });
-
-
+    }
 }
 
 /*
@@ -111,13 +110,8 @@ function editCardData() {
             inputTime.value = aimMass[index].time;
         }
     });
-
-
-        divAllCards.prepend(cardDiv);
-
-        console.log(divAllCards);
 }
-}
+
 
 /*
 Поиск объекта для вычислений и заполнения полей карточки цели
