@@ -81,18 +81,18 @@ function render () {
 
         getMonthPayment(i);
 
-    divAllCards.prepend(cardDiv);
+        divAllCards.prepend(cardDiv);
 
-    let removeButton = cardDiv.querySelector('.remove');
-    removeButton.addEventListener('click', () => {
-        cardDiv.remove();
-    });
+        let removeButton = cardDiv.querySelector('.remove');
+        removeButton.addEventListener('click', () => {
+            cardDiv.remove();
+        });
 
-    let editButton = cardDiv.querySelector('.edit');
-    editButton.addEventListener('click', () => {
-        cardDiv.classList.add('selected');
-        editCardData();
-    });
+        let editButton = cardDiv.querySelector('.edit');
+        editButton.addEventListener('click', () => {
+            cardDiv.classList.add('selected');
+            editCardData();
+        });
     }
 }
 
